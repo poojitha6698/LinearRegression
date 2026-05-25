@@ -2,10 +2,15 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 
-def load_and_preprocess_data(path):
+def preprocess_data(file_path):
 
-    df = pd.read_csv(path)
+    # Load Dataset
+    df = pd.read_csv(file_path)
 
+    # Check Missing Values
+    print(df.isnull().sum())
+
+    # Encoding Categorical Features
     le = LabelEncoder()
 
     df['sex'] = le.fit_transform(df['sex'])

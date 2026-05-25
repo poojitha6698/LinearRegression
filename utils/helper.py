@@ -1,16 +1,24 @@
 import numpy as np
 
 
-def prepare_input(age, sex, bmi, children, smoker, region):
+def prepare_input(
+    age,
+    sex,
+    bmi,
+    children,
+    smoker,
+    region
+):
 
     sex_encoded = 1 if sex == 'male' else 0
+
     smoker_encoded = 1 if smoker == 'yes' else 0
 
     region_mapping = {
-        'southwest': 3,
-        'southeast': 2,
+        'northeast': 0,
         'northwest': 1,
-        'northeast': 0
+        'southeast': 2,
+        'southwest': 3
     }
 
     region_encoded = region_mapping[region]
